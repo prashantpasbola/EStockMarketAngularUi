@@ -1,0 +1,51 @@
+<div class="container">
+    <form id="resgister" [formGroup]='register'>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <label class="col-form-label"><b>Company Code</b></label>
+                <select formControlName="CompanyCode" class="form-control">
+                    <option *ngFor="let item of CompanyList" [value]="item.companyCode">
+                        {{item.companyCode}}
+                    </option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <label class="col-form-label"><b>Stock Price</b></label>
+
+                <input type="text" class="form-control" formControlName="StockPrice" placeholder="Enter Stock Price">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <label class="col-form-label"><b>Start Date</b></label>
+
+                <input type="date" class="form-control" formControlName="StartDate" placeholder="Start Date">
+
+            </div>
+        </div>
+        <!-- <div class="row">
+            <div class="col-sm-12">
+                <label class="col-form-label"><b> End Date </b></label>
+
+                <input type="date" class="form-control" formControlName="EndDate" placeholder="End Date">
+
+            </div>
+        </div> -->
+    </form>
+
+
+<br>
+    <div class="card" >
+        <button type="button"  class="btn btn-primary float-left" data-bs-toggle="modal" data-bs-target="#exampleModal"
+        (click)="  addEditStock()" data-backdrop="static" data-keyboard="false">
+        Add Company Stock
+      </button>
+     
+
+</div> 
+</div>

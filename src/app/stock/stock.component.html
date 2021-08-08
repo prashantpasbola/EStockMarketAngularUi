@@ -1,0 +1,81 @@
+
+<div class="container">
+  <div class="card" >
+    <button type="button" class="btn btn-primary float-right" data-bs-toggle="modal" data-bs-target="#exampleModal"
+    (click)="addClick()" data-backdrop="static" data-keyboard="false">
+    Add Stock
+  </button>
+</div>
+
+
+
+<!-- 
+<div class="row">
+    <button type="button" class="btn btn-primary float-right" data-bs-toggle="modal" data-bs-target="#exampleModal"
+        (click)="addClick()" data-backdrop="static" data-keyboard="false">
+        Add Stock
+      </button>
+      &nbsp; &nbsp;&nbsp;
+      <input   placeholder="Enter Company Code" type="text" 
+      name="searchTerm"  [(ngModel)]="searchTerm" />
+  </div> -->
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered model-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{StockTitle}}</h5>
+          <button type="button" class="btn-danger" data-bs-dismiss="modal" aria-label="Close"
+            (click)="closeClick()">Close</button>
+        </div>
+        <div class="modal-body">
+          <app-add-stock [stock]="stock" *ngIf="ActivateAddEditStock">  
+          </app-add-stock>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  
+   <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Comapany Code</th>
+        <th>Stock Price </th>
+        <th>Start Date </th>
+        <th>Start Time</th>
+        <th>Options</th>
+  
+  
+      </tr>
+      <tr>
+        <th colspan="5">
+          <input  class="form-control" placeholder="Enter Company Code" type="text" 
+          name="searchTerm"  [(ngModel)]="searchTerm" />     
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of StockList | searchFilter: searchTerm">
+  
+        <td>{{item.companyCode}}</td>
+        <td>{{item.stockPrice}}</td>
+        <td>{{item.startDate | date:'yyyy-MM-dd'}}</td>
+        <td>{{item.startDate | date:'hh:mm:a'}}</td>
+  
+        <td>
+          <button type="button" class="btn btn-primary mr-1" data-bs-toggle="modal" data-bs-target="#exampleModal"
+            (click)="editClick(item)" data-backdrop="static" data-keyboard="false">Edit </button>
+          <!-- <button type="button" class="btn btn-danger mr-1">Delete </button>
+   -->
+        </td>
+  
+      </tr>
+    </tbody>
+  
+  </table> 
+</div>

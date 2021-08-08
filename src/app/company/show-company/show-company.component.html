@@ -1,0 +1,90 @@
+<!-- Button trigger modal -->
+
+<div class="container">
+  <div class="card" >
+    <button type="button"  class="btn btn-primary float-left" data-bs-toggle="modal" data-bs-target="#exampleModal"
+    (click)="addClick()" data-backdrop="static" data-keyboard="false">
+    Add Company
+  </button>
+</div>
+  
+  <!-- <div class="col-7"></div>
+  <div class="col-3">
+    <input   placeholder="Enter Company Code" type="text" 
+    name="searchTerm"  [(ngModel)]="searchTerm" />
+  </div> -->
+
+  
+ 
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered model-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{CompanyTitle}}</h5>
+        <button type="button" class="btn-danger" data-bs-dismiss="modal" aria-label="Close"
+          (click)="closeClick()">Close</button>
+      </div>
+      <div class="modal-body">
+        <app-add-edit-company [com]="com" *ngIf="ActivateAddEditCompany">
+
+        </app-add-edit-company>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="panel panel-default">
+  <div class="panel-body">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th> Company Name</th>
+      <th>Comapany Code</th>
+      <th>Company CEO </th>
+      <th>Company TurnOver </th>
+      <th>company Website</th>
+      <th>Stock Exchange </th>
+      <th>Options</th>
+
+
+    </tr>
+    <tr>
+      <th colspan="7">
+        <input  class="form-control" placeholder="Enter Company Code" type="text" 
+        name="searchTerm"  [(ngModel)]="searchTerm" />     
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of CompanyList | searchFilter: searchTerm">
+
+      <td>{{item.companyName}}</td>
+      <td>{{item.companyCode}}</td>
+      <td>{{item.companyCEO}}</td>
+      <td>{{item.companyTurnover}}</td>
+      <td>{{item.companyWebsite}}</td>
+      <td>{{item.stockExchange}}</td>
+
+      <td>
+        <button type="button" (click)="deleteClick(item.companyCode)" class="btn btn-danger mr-1">Delete </button>
+
+      </td>
+
+    </tr>
+  </tbody>
+
+</table>
+  </div>
+
+
+
+
+</div>
+</div>
+

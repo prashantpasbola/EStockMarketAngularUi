@@ -1,0 +1,19 @@
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <a routerLink="home" class="navbar-brand">
+        <img src="../assets/Image/logo.jpg" alt="" width="100" height="40" alt="">EStock Market
+      </a>
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item active">
+          <label routerLink="company" class="m-1 btn-dark btn-outline-light">Company Managment</label>
+        </li>
+        <li class="nav-item">
+          <label routerLink="stock" class="m-1 btn-dark btn-outline-light">Company Stock Managment</label>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <button class="btn btn-outline-success my-2 my-sm-0" routerLink="login" (click)="logOut()">LogOut</button>
+      </form>
+    </div>
+  </nav>

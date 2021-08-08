@@ -1,0 +1,120 @@
+<div class="container">
+    <div class="card">
+        <button type="button" class="btn btn-primary float-right" data-bs-toggle="modal" data-bs-target="#exampleModal"
+            (click)="onClick()" data-backdrop="static" data-keyboard="false">
+            Click here (List All Companies)
+        </button>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-8 ">
+            <div class="card">
+                <select class="form-control" [(ngModel)]="searchCode" placeholder="Select Company Code">
+                    <option *ngFor="let item of CompanyList" [value]="item.companyCode">
+                        {{item.companyCode}}
+                    </option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col-4">
+            <div class="card">
+                <button (click)="searchCompany(searchCode)" class="form-control btn-primary" type="submit"><i
+                        class="fa fa-search">Search</i></button>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="card" *ngIf="showCompanyDetails">
+        <h2 style="text-align: center;">Company Details</h2>
+
+        <div class="row">
+            <div class="col-6" style="text-align: center;">
+                <input type="text" value="Company Code" [disabled]="disableSelect">
+            </div>
+            <div class="col-6" style="text-align: center;">
+                <input form-Contol [disabled]="disableSelect" style="text-align: center;" type="text"
+                    value="{{companyDetail.companyCode}}">
+            </div>
+        </div><br>
+        <div class="row">
+            <div class="col-6" style="text-align: center;">
+                <input type="text" value="Company Name" [disabled]="disableSelect">
+            </div>
+            <div class="col-6" style="text-align: center;">
+                <input form-Contol [disabled]="disableSelect" style="text-align: center;" type="text"
+                    value="{{companyDetail.companyName}}">
+            </div>
+
+        </div><br>
+    </div>
+    <br>
+    <div class="card"  *ngIf="showCompanyDetails">
+        <h2 style="text-align: center;">Company Stocks Details</h2>
+        <br>
+        <div class="row" >
+            <div class="col-3" style="text-align: center;">
+                <label>FROM</label>
+            </div>
+            <div class="col-4" style="text-align: center;">
+                <input type="date" class="form-control" [(ngModel)]="StartDate" placeholder="Start Date">
+
+            </div>
+            <div class="col-1" style="text-align: center;">
+                <label>to</label>
+            </div>
+            <div class="col-4" style="text-align: center;">
+                <input type="date" (change)="onChange(EndDate)"
+                 class="form-control" [(ngModel)]="EndDate" placeholder="End Date">
+            </div>
+        </div>
+        <br>
+
+
+        <div class="panel panel-default" *ngIf="showCompanyStocksDetails">
+            <div class="panel-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th style="text-align: center;"> Stock Price</th>
+                            <th style="text-align: center;">Date</th>
+                            <th style="text-align: center;">time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of companyStockDetail.stocks">
+  
+                            <td style="text-align: center;">{{item.stockPrice}}</td>
+                            <td style="text-align: center;">{{item.startDate | date:'yyyy-MM-dd' }}</td>
+                            <td style="text-align: center;">{{item.startDate | date:'hh:mm:a'}}</td>
+
+
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+
+        <div class="row" *ngIf="showCompanyStocksDetails">
+            <div class="col-2">
+                <div class="col-12">MIN</div>
+                <div class="col-12">MAX</div>
+                <div class="col-12">AVG</div>
+            </div>
+            <div class="col-1"></div>
+            <div class="col-3">
+                <div class="col-12">{{companyStockDetail.min}}</div>
+                <div class="col-12">{{companyStockDetail.max}}</div>
+                <div class="col-12">{{companyStockDetail.avg}}</div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <br>
+
+
+</div>

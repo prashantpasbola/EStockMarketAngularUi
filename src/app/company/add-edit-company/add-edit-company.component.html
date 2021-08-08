@@ -1,0 +1,129 @@
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-6">
+            <label class="col-form-label"><b>Company Name</b></label>
+            <input type="text" class="form-control" [(ngModel)]="CompanyName" placeholder="Enter Company Name">
+        </div>
+
+        <div class="col-sm-6">
+            <label class="col-form-label">
+                <b>Company Code</b>
+            </label>
+            <input type="text" class="form-control" [(ngModel)]="CompanyCode" placeholder="Enter Company Code">
+        </div>
+    </div>
+
+    <!-- <div class="row">
+        <label class="col-sm-4 col-form-label">
+            <b>Company Name</b>
+        </label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" [(ngModel)]="CompanyName" placeholder="Enter Company Name">
+        </div>
+    </div>
+
+
+
+    <div class="form-form row">
+        <label class="col-sm-4 col-form-label">
+            <b>Company Code</b>
+        </label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" [(ngModel)]="CompanyCode" placeholder="Enter Company Code">
+        </div>
+    </div> -->
+
+
+    <div class="row">
+        <div class="col-sm-6">
+            <label class="col-form-label"><b>Company CEO</b></label>
+            <input type="text" class="form-control" [(ngModel)]="CompanyCEO" placeholder="Enter Company CEO">
+        </div>
+
+        <div class="col-sm-6">
+            <label class="col-form-label"><b>Company Turnover</b></label>
+            <input type="text" class="form-control" [(ngModel)]="CompanyTurnover" placeholder="Enter Company Code">
+        </div>
+    </div>
+<!-- 
+    <div class="row">
+        <label class="col-sm-4 col-form-label">
+            <b>Company CEO</b>
+        </label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" [(ngModel)]="CompanyTurnover" placeholder="Enter Company Turnover">
+        </div>
+    </div> -->
+
+
+<!-- 
+    <div class="form-form row">
+        <label class="col-sm-4 col-form-label">
+            <b>Company Turnover</b>
+        </label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" [(ngModel)]="CompanyTurnover" placeholder="Enter Company Turnover">
+        </div>
+    </div> -->
+    <div class="row">
+        <div class="col-sm-12">
+        <label class="col-form-label"><b>Stock Exchange</b></label>
+        <select [(ngModel)]="StockExchange" class="form-control">
+            <option Value="NSE">NSE</option>
+            <option Value="BSE">BSE</option>
+        </select>
+    </div>
+    </div>
+
+<!-- 
+    <div class="form-form row">
+        <label class="col-sm-4 col-form-label">
+            <b>Stock Exchange</b>
+        </label>
+            <select [(ngModel)]="StockExchange" class="form-control">
+                <option Value="NSE">NSE</option>
+                <option Value="BSE">BSE</option>
+            </select>      
+    </div> -->
+
+    <div class="row">
+        <div class="col-sm-12">
+            <label class="col-form-label"><b>Stock Website</b></label>
+            <input type="text" class="form-control" [(ngModel)]="CompanyWebsite" placeholder="Enter Company Website">
+        </div>
+    </div>
+
+    <!-- <div class="form-form row">
+        <label class="col-sm-4 col-form-label">
+            <b>Stock Website</b>
+        </label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" [(ngModel)]="CompanyWebsite" placeholder="Enter Company Website">
+        </div>
+    </div> -->
+
+<!-- 
+    <button (click)="addCompany()" *ngIf="(com.Id =='')" class="btn btn-primary float-left">
+        Add
+    </button>
+
+
+    <button (click)="updateCompany()" *ngIf="(com.Id !='')" class="btn btn-primary">
+        Update
+    </button> -->
+<br>
+    <div class="card" >
+        <button type="button"  class="btn btn-primary float-left" data-bs-toggle="modal" data-bs-target="#exampleModal"
+        (click)="addCompany()" data-backdrop="static" data-keyboard="false">
+        Add Company
+      </button>
+      <!-- <button type="button"class="btn btn-primary float-left" data-bs-toggle="modal" data-bs-target="#exampleModal"
+      (click)="updateCompany()" data-backdrop="static" data-keyboard="false">
+      Update Company
+    </button> -->
+
+    <!-- *ngIf="(com.Id !='')"  -->
+
+</div>
+</div>
